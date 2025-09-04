@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function(){
-    var mode = docment.querySelector('#light_mode').textContent;
+    var mode = document.querySelector('#light_mode').textContent;
     if(mode == "Dark Mode"){
         document.querySelector('#dark_mode').addEventListener('click',function(){
         this.textContent = "Light Mode";
