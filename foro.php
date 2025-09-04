@@ -29,12 +29,19 @@
 <td>
 <select name="autor" id="autor"> 
 <?php 
-$sql4="select autor from tema group by autor order by autor";
-$con4=mysqli_query($conexion,$sql4);
-while($autor=mysqli_fetch_array($con4))
-{?>
-<option value="<?php print $autor[0]; ?>"> <?php print $autor[0]; ?></option>
-<?php }?>
+// Convertido a PDO con prepared statement
+$sql4 = "SELECT autor FROM tema GROUP BY autor ORDER BY autor";
+try {
+    $stmt4 = $conexion->query($sql4);
+    while($autor = $stmt4->fetch(PDO::FETCH_ARRAY)) {
+?>
+<option value="<?php echo htmlspecialchars($autor[0]); ?>"> <?php echo htmlspecialchars($autor[0]); ?></option>
+<?php 
+    }
+} catch(PDOException $e) {
+    echo "Error: " . $e->getMessage();
+}
+?>
 </select>
 </td>
 
@@ -53,36 +60,55 @@ while($autor=mysqli_fetch_array($con4))
 <td width="68" align="center">Respuestas</td>
 </tr>
 <?php 
-if(@$_POST['buscar'])
-{ 
-$sql="select id,titulo,autor,fecha from tema where (titulo like '%$_POST[buscar]%' or Tema like '%$_POST[buscar]%') order by id desc";
+// Convertido a PDO con prepared statements para mayor seguridad
+if(isset($_POST['buscar']) && !empty($_POST['buscar'])) { 
+    $buscar = $_POST['buscar'];
+    $sql = "SELECT ID, Titulo, autor, fecha FROM tema WHERE (Titulo LIKE :buscar1 OR Tema LIKE :buscar2) ORDER BY ID DESC";
+    $stmt = $conexion->prepare($sql);
+    $searchTerm = '%' . $buscar . '%';
+    $stmt->execute([
+        ':buscar1' => $searchTerm,
+        ':buscar2' => $searchTerm
+    ]);
+} else if(isset($_POST['autor']) && !empty($_POST['autor'])) {
+    $autorBuscar = $_POST['autor'];
+    $sql = "SELECT ID, Titulo, autor, fecha FROM tema WHERE autor = :autor ORDER BY ID DESC";
+    $stmt = $conexion->prepare($sql);
+    $stmt->execute([':autor' => $autorBuscar]);
+} else { 
+    $sql = "SELECT ID, Titulo, autor, fecha FROM tema ORDER BY ID DESC";
+    $stmt = $conexion->query($sql);
 }
-else if(@$_POST['autor'])
-{
-$sql="select id,titulo,autor,fecha from tema where autor='$_POST[autor]' order by id desc";
-} 
-else
-{ 
-$sql="select id,titulo,autor,fecha from tema order by id desc";
-}
-$con=mysqli_query($conexion,$sql);
-while($ver=mysqli_fetch_array($con)){
-?> <tr> 
-<td><a href="temas.php?cual=<?php print $ver[0]?>"><?php print $ver[1]?></a></td>
-<td align="center"><?php print $ver[2]?></td>
-<td align="center"><?php print $ver[3]?></td>
+
+try {
+    while($ver = $stmt->fetch(PDO::FETCH_ARRAY)) {
+?> 
+<tr> 
+<td><a href="temas.php?cual=<?php echo htmlspecialchars($ver[0]); ?>"><?php echo htmlspecialchars($ver[1]); ?></a></td>
+<td align="center"><?php echo htmlspecialchars($ver[2]); ?></td>
+<td align="center"><?php echo htmlspecialchars($ver[3]); ?></td>
 <td align="center">
 
 <?php 
-$sql2="select id from respuesta where id_tema='$ver[0]'";
-$filas=mysqli_query($conexion,$sql2);
-print mysqli_num_rows($filas);
+// Convertido a PDO para contar respuestas
+$sql2 = "SELECT COUNT(*) as total FROM respuesta WHERE id_tema = :id_tema";
+$stmt2 = $conexion->prepare($sql2);
+$stmt2->execute([':id_tema' => $ver[0]]);
+$resultado = $stmt2->fetch(PDO::FETCH_ASSOC);
+echo $resultado['total'];
 ?>
 </td>
-</tr><?php }?>
+</tr>
+<?php 
+    }
+} catch(PDOException $e) {
+    echo "<tr><td colspan='4'>Error al cargar los temas: " . $e->getMessage() . "</td></tr>";
+}
+?>
 </table>
+
 <script>
-            document.getElementById('light_mode').addEventListener('click', function () {
+document.getElementById('light_mode').addEventListener('click', function () {
     document.body.classList.toggle('light-mode');
 
     // Cambiar el texto del botón según el modo actual
@@ -92,6 +118,6 @@ print mysqli_num_rows($filas);
         this.textContent = 'Light Mode';
     }
 });
-        </script>
+</script>
     </body>
 </html>
