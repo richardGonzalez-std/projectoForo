@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function(){
         document.querySelector("body").style.backgroundColor="white";
         document.querySelector("body").style.color="black";
     });
-    }else{
+    }else if(mode == "Light Mode"){
     document.querySelector('#light_mode').addEventListener('click',function(){
         this.textContent = "Dark Mode";
         this.id = "dark_mode";
