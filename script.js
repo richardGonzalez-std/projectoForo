@@ -4,5 +4,6 @@ document.addEventListener("DOMContentLoaded", function(){
         this.className.add("dark-mode");
         document.body.style.backgroundColor="black";
         document.body.style.color="white";
+        document.querySelector("input").style.background="#d6ecc16e";
     });
 })
