@@ -1,9 +1,10 @@
 <html>
     <head>
         <link rel="stylesheet" href="style.css">
+        
     </head>
     <body>
-
+        <script src="script.js"></script>
         <?php
         include 'db.php';
         include 'menu.php';
@@ -107,6 +108,6 @@
         ?>
         </table>
 
-        <script src="script.js"></script>
+
     </body>
 </html>
