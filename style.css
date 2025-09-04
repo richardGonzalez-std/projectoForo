@@ -1,164 +1,215 @@
-/*Variables declaration*/
+/* ================================
+   Variables globales
+================================= */
+:root {
+  --color-bg-dark: #1e1e1e;
+  --color-bg-light: #ffffff;
+  --color-text-dark: #ffffff;
+  --color-text-light: #333333;
+  --color-accent: rgb(245, 214, 40);
 
-/* Reset básico */
+  --btn-bg-dark: #444;
+  --btn-bg-light: #ddd;
+  --btn-hover-dark: #666;
+  --btn-hover-light: #bbb;
+
+  --radius-sm: 0.5rem;
+  --radius-md: 1.5rem;
+  --radius-lg: 2rem;
+  --shadow-md: 0px 4px 8px rgba(0,0,0,0.3);
+  --shadow-strong: 0px 4px 8px rgba(0,0,0,0.6);
+
+  --transition-fast: 0.3s ease;
+}
+
+/* ================================
+   Reset & Base
+================================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
-    transition: background-color 0.3s, color 0.3s;
+  font-family: Arial, sans-serif;
+  background-color: var(--color-bg-light);
+  color: var(--color-text-light);
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+  line-height: 1.6;
 }
 
-/* Estilo del contenedor del foro */
-#menu{
-    border-radius: 2rem;
-    box-shadow: 0px 4px 8px rgba(0,0,0,0.6);
-    margin: 2rem auto;
-    background: rgba(0,0,0,0.3);
-    width: 20%;
+/* ================================
+   Menu
+================================= */
+#menu {
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-strong);
+  margin: 2rem auto;
+  background: rgba(0,0,0,0.3);
+  width: 20%;
+  text-align: center;
 }
-#menu tr td{
-    border: none;
 
+#menu tr td {
+  border: none;
 }
-#menu a{
-    text-decoration: none;
-    color: black;
-    
-}
-#menu a:hover{
-    color: rgb(141, 80, 10);
 
-    font-size: 1.3rem;
-
+#menu a {
+  text-decoration: none;
+  color: inherit;
+  transition: color var(--transition-fast), font-size var(--transition-fast);
 }
+
+#menu a:hover {
+  color: rgb(141, 80, 10);
+  font-size: 1.2rem;
+}
+
+/* ================================
+   Foro
+================================= */
 #foro {
-    width: 70%;
-    margin: 2rem auto;
-    padding: 1rem;
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(107, 99, 99, 0.533));
-    border-radius: 1.5rem;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
-    color: white;
-    transition: background 0.3s, color 0.3s;
+  width: 70%;
+  margin: 2rem auto;
+  padding: 1rem;
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(107, 99, 99, 0.533));
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  color: var(--color-text-dark);
+  transition: background var(--transition-fast), color var(--transition-fast);
 }
 
-/* Estilos para las celdas de la tabla */
 #foro td {
-    border-radius: 1rem;
-    color: white;
-    text-align: center;
-    padding: 0.5rem;
-    width: 4.5vw;
-    transition: background-color 0.3s ease;
+  border-radius: var(--radius-sm);
+  text-align: center;
+  padding: 0.5rem;
+  width: 4.5vw;
+  transition: background-color var(--transition-fast);
 }
 
-/* Estilos para los enlaces dentro de las celdas */
-#foro tr td a {
-    text-decoration: none;
-    color: white;
-    font-weight: bold;
-    transition: color 0.3s ease, font-size 0.3s ease;
+#foro td a {
+  text-decoration: none;
+  color: var(--color-text-dark);
+  font-weight: bold;
+  transition: color var(--transition-fast), font-size var(--transition-fast);
 }
 
-/* Hover en los enlaces */
-#foro tr td a:hover {
-    color: rgb(245, 214, 40);
-    font-size: 1.2rem;
+#foro td a:hover {
+  color: var(--color-accent);
+  font-size: 1.15rem;
 }
 
-/* Estilos para los formularios */
+/* ================================
+   Formularios
+================================= */
 form {
-    margin-bottom: 2rem;
+  margin-bottom: 2rem;
+  text-align: center;
 }
 
-form table {
-    margin: 0 auto;
-}
-
-form input[type="text"], form select {
-    padding: 0.5rem;
-    border-radius: 0.5rem;
-    border: 1px solid #ccc;
-    width: 100%;
-    max-width: 200px;
+form input[type="text"],
+form select {
+  padding: 0.5rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid #ccc;
+  width: 100%;
+  max-width: 200px;
 }
 
 form input[type="submit"] {
-    padding: 0.5rem 1rem;
-    border-radius: 0.5rem;
-    border: none;
-    background-color: #444;
-    color: white;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-sm);
+  border: none;
+  background-color: var(--btn-bg-dark);
+  color: var(--color-text-dark);
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
 }
 
 form input[type="submit"]:hover {
-    background-color: #666;
+  background-color: var(--btn-hover-dark);
+}
+
+/* ================================
+   Botón de modo
+================================= */
+#light_mode, #dark_mode {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
+  z-index: 1000;
 }
 
 #light_mode {
-    position: fixed;
-    top: 1rem;
-    margin-left: 93%;
-    padding: 0.5rem 1rem;
-    border: none;
-    border-radius: 0.5rem;
-    background-color: #444;
-    color: white;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+  background-color: var(--btn-bg-dark);
+  color: var(--color-text-dark);
 }
-
 #light_mode:hover {
-    background-color: #666;
+  background-color: var(--btn-hover-dark);
 }
 
-/* Estilos para el Light Mode */
-body.light-mode {
-    background-color: #ffffff;
-    color: #000000;
+#dark_mode {
+  background-color: var(--btn-bg-light);
+  color: var(--color-text-light);
 }
-body.light-mode #menu{
-    background: linear-gradient(rgba(255,255,255,0.9), rgba(205,200,200,0.9));
+#dark_mode:hover {
+  background-color: var(--btn-hover-light);
+}
+
+/* ================================
+   Light Mode Styles
+================================= */
+body.light-mode {
+  background-color: var(--color-bg-light);
+  color: var(--color-text-light);
+}
+
+body.light-mode #menu {
+  background: linear-gradient(rgba(255,255,255,0.9), rgba(205,200,200,0.9));
 }
 
 body.light-mode #foro td {
-    background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(200, 200, 200, 0.9));
-    color: #000000;
+  background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(200, 200, 200, 0.9));
+  color: var(--color-text-light);
 }
 
 body.light-mode #foro td a {
-    color: #000000;
-}
-
-body.light-mode #foro tr td a:hover {
-    color: rgb(245, 214, 40);
+  color: var(--color-text-light);
 }
 
 body.light-mode form input[type="submit"] {
-    background-color: #ddd;
-    color: #333;
+  background-color: var(--btn-bg-light);
+  color: var(--color-text-light);
 }
 
 body.light-mode form input[type="submit"]:hover {
-    background-color: #bbb;
+  background-color: var(--btn-hover-light);
 }
 
-
-/* Responsive Design */
+/* ================================
+   Responsive
+================================= */
 @media (max-width: 768px) {
-    #foro {
-        width: 90%; /* Ajuste del ancho en pantallas pequeñas */
-    }
-    
-    #foro td {
-        width: 8vw; /* Ajuste del ancho de las celdas */
-    }
-    
-    #foro tr td a:hover {
-        font-size: 1rem; /* Ajuste del tamaño del texto en hover */
-    }
+  #foro {
+    width: 90%;
+  }
+
+  #foro td {
+    width: auto;
+    font-size: 0.9rem;
+  }
+
+  #menu {
+    width: 90%;
+  }
+
+  #menu a:hover {
+    font-size: 1rem;
+  }
 }
