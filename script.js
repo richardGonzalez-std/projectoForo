@@ -5,11 +5,13 @@ document.addEventListener("DOMContentLoaded", function () {
         if(btn.classList.contains("light_mode")){
             btn.classList.remove("light_mode");
             btn.classList.add("dark_mode");
+            btn.textContent = "Dark Mode";
             document.body.classList.add("dark-mode");
         }else if(btn.classList.contains("dark_mode")){
             btn.classList.remove("dark_mode");
             btn.classList.add("light_mode");
             document.body.classList.remove("dark-mode");
+            btn.textContent = "Light Mode";
         }
     });
 });
