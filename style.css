@@ -33,3 +33,9 @@ body.dark-mode form table tr td label{
 body form table{
     margin: 0 auto;
 }
+
+#menu{
+    margin:0 auto;
+    text-align:center;
+    border-style:solid;
+}

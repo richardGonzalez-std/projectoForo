@@ -1,6 +1,6 @@
-<table id="menu" width="200" border="1" align="center">
+<table id="menu" width="200">
     <tr>
-        <td align="center"><a href="foro.php">Foro</a></td>
-        <td align="center"><a href="agregar_temas.php">Agregar Tema</a></td>
+        <td><a href="foro.php">Foro</a></td>
+        <td><a href="agregar_temas.php">Agregar Tema</a></td>
     </tr>
 </table>
