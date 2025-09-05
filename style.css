@@ -192,6 +192,26 @@ body.light-mode form input[type="submit"]:hover {
   background-color: var(--btn-hover-light);
 }
 
+body.dark_mode{
+    background-color: var(--color-bg-dark);
+}
+body.dark_mode #menu {
+    background: linear-gradient(rgba(0,0,0,0.9), rgba(50,50,50,0.9));
+}
+body.dark_mode #foro td {
+    background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(50, 50, 50, 0.9));
+    color: var(--color-text-dark);
+}
+body.dark_mode #foro td a {
+    color: var(--color-text-dark);
+}
+body.dark_mode form input[type="submit"] {      
+    background-color: var(--btn-bg-dark);
+    color: var(--color-text-dark);
+}
+body.dark_mode form input[type="submit"]:hover {
+    background-color: var(--btn-hover-dark);
+}
 /* ================================
    Responsive
 ================================= */
