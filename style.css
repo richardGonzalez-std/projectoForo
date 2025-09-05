@@ -2,5 +2,18 @@ button {
     position:absolute;
     left: 90%;
     width:max-content;
-    border-radius:1.5rem;
+    border-radius:1rem;
+}
+.dark_mode{
+    background-color: #fce8ff;
+    color:  black;
+}
+.dark_mode:hover{
+    background-color: #fcd8ff;
+    box-shadow: 0 0 10px #dcb8df;
+}
+
+.light_moode{
+    background-color: #323;
+    color: white;
 }
