@@ -30,3 +30,6 @@ body.dark-mode{
 body.dark-mode form table tr td label{
  color: white;
 }
+body form table{
+    margin: 0 auto;
+}
