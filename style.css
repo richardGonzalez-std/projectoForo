@@ -20,7 +20,7 @@ button {
     background-color: #333;
     color: white;
 }
-body.dark_mode{
+body.dark-mode{
     background-color: rgba(0,0,123,0.3);
     color: white;
 }
