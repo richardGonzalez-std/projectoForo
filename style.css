@@ -43,6 +43,9 @@ body form table{
     gap: 2rem;
     font-family: monospace;
     font-size: 1.6rem;
+    width: max-content;
+    text-decoration: none;
+    color:black;
 }
 #menu:hover{
     transform: scale(1.05);
