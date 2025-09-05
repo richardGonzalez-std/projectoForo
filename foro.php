@@ -14,7 +14,7 @@
         <br>
 
         <form id="form1" name="form1" method="post" action="">
-        <table  align ="center">
+        <table>
         <tr>
         <td><label for="buscar">Temas</label></td>
         <td><input type="text" name="buscar" id="buscar" /></td>
@@ -24,7 +24,7 @@
         </form>
 
         <form id="form2" name="form2" method="post" action="">
-        <table align ="center" >
+        <table>
         <tr>
         <td><label for="autor">Lista de autores</label></td>
         <td>
