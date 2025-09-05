@@ -1,6 +1,6 @@
 button {
     position:absolute;
     left: 90%;
-    width:25px;
+    width:max-content;
     border-radius:1.5rem;
 }
