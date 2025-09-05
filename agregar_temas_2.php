@@ -43,7 +43,7 @@ $fecha = date("Y-m-d");
 $hora = date("H:i:s");
 
 // Insertar con prepared statement (PDO)
-$sql = "INSERT INTO tema (ID, Titulo, Tema, autor, fecha, Hora) VALUES (NULL, :titulo, :contenido, :autor, :fecha, :hora)";
+$sql = "INSERT INTO tema ( Titulo, Tema, autor, fecha, Hora) VALUES ( :titulo, :contenido, :autor, :fecha, :hora)";
 
 try {
     $stmt = $conexion->prepare($sql);
