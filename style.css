@@ -38,4 +38,12 @@ body form table{
     margin:0 auto;
     text-align:center;
     border-style:solid;
+    border-radius: .8rem;
+    height:3rem;
+    gap: 2rem;
+    font-family: monospace;
+    font-size: 1.6rem;
+}
+#menu:hover{
+    transform: scale(1.05);
 }
