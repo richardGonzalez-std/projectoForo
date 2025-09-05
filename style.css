@@ -43,11 +43,13 @@ body form table{
     font-family: monospace;
     font-size: 1.6rem;
     width: max-content;
-    text-decoration: none;
-    color:black;
+    
+    
 }
 #menu tr td a{
     margin: auto 3.2rem;
+    text-decoration: none;
+    color:black;
 }
 #menu:hover{
     transform: scale(1.05);
