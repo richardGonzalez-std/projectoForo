@@ -6,6 +6,9 @@ button {
     border-radius:1rem;
     border-color: none;
 }
+label{
+    color: black;
+}
 .dark_mode{
     background-color: #fcf8ff;
     color:  black;
@@ -21,6 +24,9 @@ button {
     color: white;
 }
 body.dark-mode{
-    background-color: rgba(0,0,0);
+    background-color: rgba(0,0,0,0.8);
     color: white;
+}
+body.dark-mode form table tr td label{
+ color: white;
 }
