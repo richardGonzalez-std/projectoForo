@@ -10,7 +10,7 @@
         include 'menu.php';
 
         ?>
-        <button id="light_mode">Light Mode</button>
+        <button class="light_mode">Light Mode</button>
         <br>
 
         <form id="form1" name="form1" method="post" action="">
