@@ -15,8 +15,8 @@
   --color-surface-light: #ffffff;
   
   /* Text colors */
-  --color-text-dark: #2d3748;
-  --color-text-light: #ffffff;
+  --color-text-dark: #ffffff;
+  --color-text-light: #2d3748;
   --color-text-muted: #718096;
   
   /* Buttons */
@@ -80,7 +80,7 @@ html {
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
   background: linear-gradient(135deg, var(--color-bg-light) 0%, #e3f2fd 100%);
-  color: var(--color-text-dark);
+  color: var(--color-text-light);
   transition: all var(--transition-normal);
   line-height: 1.6;
   font-size: var(--font-size-base);
@@ -163,7 +163,7 @@ body {
 
 #menu a {
   text-decoration: none;
-  color: var(--color-text-dark);
+  color: var(--color-text-light);
   font-weight: 600;
   font-size: var(--font-size-base);
   display: block;
@@ -252,7 +252,7 @@ body {
 
 #foro td a {
   text-decoration: none;
-  color: var(--color-text-dark);
+  color: var(--color-text-light);
   font-weight: 600;
   font-size: var(--font-size-sm);
   display: block;
@@ -329,8 +329,16 @@ form input[type="submit"]:active {
 /* ================================
    Toggle de modo mejorado
 ================================= */
+.theme-toggle {
+  position: fixed;
+  top: var(--spacing-lg);
+  right: var(--spacing-lg);
+  z-index: 1000;
+  display: flex;
+  gap: var(--spacing-sm);
+}
 
-.light_mode, .dark_mode {
+#light_mode, #dark_mode {
   padding: var(--spacing-sm) var(--spacing-md);
   border: none;
   border-radius: var(--radius-full);
@@ -345,25 +353,25 @@ form input[type="submit"]:active {
   backdrop-filter: blur(10px);
 }
 
-.light_mode {
+#light_mode {
   background: rgba(255, 255, 255, 0.9);
-  color: var(--color-text-dark);
+  color: var(--color-text-light);
   border: 1px solid rgba(0,0,0,0.1);
 }
 
-.light_mode:hover {
+#light_mode:hover {
   background: white;
   transform: scale(var(--btn-hover-scale));
   box-shadow: var(--shadow-lg);
 }
 
-.dark_mode {
+#dark_mode {
   background: rgba(0, 0, 0, 0.8);
   color: white;
   border: 1px solid rgba(255,255,255,0.2);
 }
 
-.dark_mode:hover {
+#dark_mode:hover {
   background: rgba(0, 0, 0, 0.9);
   transform: scale(var(--btn-hover-scale));
   box-shadow: var(--shadow-lg);
@@ -374,7 +382,7 @@ form input[type="submit"]:active {
 ================================= */
 body.dark-mode {
   background: linear-gradient(135deg, var(--color-bg-dark) 0%, #16213e 100%);
-  color: var(--color-surface-light);
+  color: var(--color-text-dark);
 }
 
 body.dark-mode #menu {
@@ -383,7 +391,7 @@ body.dark-mode #menu {
 }
 
 body.dark-mode #menu a {
-  color: var(--color-text-light);
+  color: var(--color-text-dark);
 }
 
 body.dark-mode #foro {
@@ -397,7 +405,7 @@ body.dark-mode #foro td {
 }
 
 body.dark-mode #foro td a {
-  color: var(--color-text-light);
+  color: var(--color-text-dark);
 }
 
 body.dark-mode form input[type="text"],
@@ -517,7 +525,11 @@ body.dark-mode form input[type="text"]::placeholder {
     font-size: var(--font-size-xs);
   }
   
- 
+  .theme-toggle {
+    top: var(--spacing-sm);
+    right: var(--spacing-sm);
+    flex-direction: column;
+  }
   
   form {
     padding: var(--spacing-md);
@@ -544,9 +556,69 @@ body.dark-mode form input[type="text"]::placeholder {
     font-size: 0.7rem;
   }
   
-
+  .theme-toggle {
+    position: static;
+    margin: var(--spacing-sm) auto;
+    justify-content: center;
+  }
 }
 
 /* ================================
    Utilidades
 ================================= */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.hidden {
+  display: none;
+}
+
+.visible {
+  display: block;
+}
+
+/* Estados de carga */
+.loading {
+  animation: pulse 1.5s ease-in-out infinite;
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.hidden {
+  display: none;
+}
+
+.visible {
+  display: block;
+}
+
+/* Estados de carga */
+.loading {
+  animation: pulse 1.5s ease-in-out infinite;
+}
