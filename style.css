@@ -2,6 +2,7 @@ button {
     position:absolute;
     left: 90%;
     width:max-content;
+    height:1.5rem;
     border-radius:1rem;
     border-color: none;
 }
@@ -17,5 +18,9 @@ button {
 
 .light_mode{
     background-color: #333;
+    color: white;
+}
+body.dark_mode{
+    background-color: rgba(0,0,123,0.3);
     color: white;
 }
