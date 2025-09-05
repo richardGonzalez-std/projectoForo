@@ -64,4 +64,4 @@ try {
 }
 ?>
 
-<meta http-equiv="refresh" content="2;URL=agregar_temas.php" />
+<meta http-equiv="refresh" content="3;URL=index.php" />
