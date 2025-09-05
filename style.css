@@ -47,7 +47,7 @@ body form table{
     color:black;
 }
 #menu tr td a{
-    margin: 1rem auto;
+    margin: auto 3.2rem;
 }
 #menu:hover{
     transform: scale(1.05);
