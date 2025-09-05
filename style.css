@@ -330,7 +330,7 @@ form input[type="submit"]:active {
    Toggle de modo mejorado
 ================================= */
 
-#light_mode, #dark_mode {
+.light_mode, .dark_mode {
   padding: var(--spacing-sm) var(--spacing-md);
   border: none;
   border-radius: var(--radius-full);
@@ -345,25 +345,25 @@ form input[type="submit"]:active {
   backdrop-filter: blur(10px);
 }
 
-#light_mode {
+.light_mode {
   background: rgba(255, 255, 255, 0.9);
   color: var(--color-text-light);
   border: 1px solid rgba(0,0,0,0.1);
 }
 
-#light_mode:hover {
+.light_mode:hover {
   background: white;
   transform: scale(var(--btn-hover-scale));
   box-shadow: var(--shadow-lg);
 }
 
-#dark_mode {
+.dark_mode {
   background: rgba(0, 0, 0, 0.8);
   color: white;
   border: 1px solid rgba(255,255,255,0.2);
 }
 
-#dark_mode:hover {
+.dark_mode:hover {
   background: rgba(0, 0, 0, 0.9);
   transform: scale(var(--btn-hover-scale));
   box-shadow: var(--shadow-lg);
