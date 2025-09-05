@@ -1,4 +1,6 @@
-button.light_mode {
+button {
     position:absolute;
-    left: 80%;
+    left: 90%;
+    width:25px;
+    border-radius:1.5rem;
 }
