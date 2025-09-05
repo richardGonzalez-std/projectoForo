@@ -3,17 +3,19 @@ button {
     left: 90%;
     width:max-content;
     border-radius:1rem;
+    border-color: none;
 }
 .dark_mode{
-    background-color: #fce8ff;
+    background-color: #fcf8ff;
     color:  black;
+    
 }
 .dark_mode:hover{
-    background-color: #fcd8ff;
-    box-shadow: 0 0 10px #dcb8df;
+    background-color: #eff8ef;
+    box-shadow: 0 0 10px #1c181f;
 }
 
-.light_moode{
-    background-color: #323;
+.light_mode{
+    background-color: #333;
     color: white;
 }
