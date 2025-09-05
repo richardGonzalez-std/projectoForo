@@ -40,12 +40,14 @@ body form table{
     border-style:solid;
     border-radius: .8rem;
     height:3rem;
-    gap: 2rem;
     font-family: monospace;
     font-size: 1.6rem;
     width: max-content;
     text-decoration: none;
     color:black;
+}
+#menu tr td a{
+    margin: 1rem auto;
 }
 #menu:hover{
     transform: scale(1.05);
